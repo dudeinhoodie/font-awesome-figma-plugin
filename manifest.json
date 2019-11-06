@@ -1,0 +1,7 @@
+{
+	"name": "font-awesome-plugin",
+	"id": "1",
+	"api": "1.0.0",
+	"main": "dist/code.js",
+	"ui": "dist/ui.html"
+}

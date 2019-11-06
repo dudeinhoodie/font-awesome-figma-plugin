@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "esModuleInterop": true,
+        "module": "es6",
+        "target": "es6",
+        "jsx": "react",
+        "sourceMap": true,
+        "typeRoots": ["custom.d.ts"]
+    },
+    "exclude": ["node_modules"]
+}
