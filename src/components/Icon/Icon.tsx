@@ -4,13 +4,20 @@ import './icon.scss';
 
 interface IIconComponent {
     icon: IIcon;
+    onClick: Function;
 }
 
 const Icon: FC<IIconComponent> = (props: IIconComponent) => {
-    const { icon } = props;
+    const { icon, onClick } = props;
+
+    const handleClick = (event: React.MouseEvent<HTMLDivElement>): void => {
+        if (onClick) {
+            onClick(icon);
+        }
+    };
 
     return (
-        <div className="icon-list__element">
+        <div className="icons-container__element" onClick={handleClick} key={icon.name}>
             <div dangerouslySetInnerHTML={{ __html: icon.content }} />
         </div>
     );

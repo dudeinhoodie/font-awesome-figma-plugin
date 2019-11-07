@@ -4,9 +4,21 @@
     height: 100%;
 }
 
-.icon-list {
+.search-field {
+    padding-bottom: 20px;
+}
+
+.icons-container {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column nowrap;
+
+    &__list {
+        display: flex;
+        flex-flow: row wrap;
+        max-height: 250px;
+
+        overflow: auto;
+    }
 
     &__element {
         width: 20px;
@@ -14,5 +26,10 @@
 
         padding: 10px;
         cursor: pointer;
+    }
+
+    svg {
+        width: 20px;
+        height: 20px;
     }
 }

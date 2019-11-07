@@ -13,10 +13,11 @@ type InputProps = {
     className?: string;
     label?: string;
     disabled?: boolean;
+    maxLength?: number;
 };
 
 const Input: FC<InputProps> = (props: InputProps): ReactElement<HTMLInputElement> => {
-    const { id, type = 'text', onChange, value, className, label, disabled } = props;
+    const { id, type = 'text', maxLength, onChange, value, className, label, disabled } = props;
     const cnContainer = concatClassName('input-container', [className]);
     const cnControl = concatClassName('input-container__control', [
         disabled && 'input-container__control--disabled',
@@ -40,6 +41,7 @@ const Input: FC<InputProps> = (props: InputProps): ReactElement<HTMLInputElement
                 value={value}
                 disabled={disabled}
                 onChange={handleChange}
+                maxLength={maxLength}
             />
         </div>
     );

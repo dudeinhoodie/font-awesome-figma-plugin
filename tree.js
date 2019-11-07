@@ -15,8 +15,8 @@ const dirTree = require('directory-tree');
                 const content = await readFile(file.path);
 
                 items.push({
-                    ...file,
                     content,
+                    name: getFileName(file.name),
                 });
             }
 
@@ -25,6 +25,10 @@ const dirTree = require('directory-tree');
 
         const readFile = (fileName) => {
             return util.promisify(fs.readFile)(fileName, 'utf8');
+        };
+
+        const getFileName = (fileName) => {
+            return fileName.replace(/\.svg/g, '');
         };
 
         const { children } = dirTree('./src/assets/icons');
