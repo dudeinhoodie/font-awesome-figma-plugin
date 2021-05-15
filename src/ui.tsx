@@ -54,7 +54,7 @@ class App extends Component<AppProps, AppState> {
         return (
             <div className="icons-container__list">
                 {iconList.map((icon) => (
-                    <Icon icon={icon} onClick={this.handlePick} />
+                    <Icon key={icon.name} icon={icon} onClick={this.handlePick} />
                 ))}
             </div>
         );
