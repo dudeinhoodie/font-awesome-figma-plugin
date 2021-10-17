@@ -14,90 +14,87 @@ import icons from '../icons.json';
 import { IIcon } from './types';
 
 type AppState = {
-    iconList: IIcon[];
-    searchQuery: string;
-    filteredIconList: IIcon[];
+  iconList: IIcon[];
+  searchQuery: string;
+  filteredIconList: IIcon[];
 };
 
 type AppProps = {};
 
 class App extends Component<AppProps, AppState> {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.state = {
-            iconList: icons.items,
-            searchQuery: '',
-            filteredIconList: [],
-        };
-    }
-
-    handleSearchChange = (value) => {
-        const { iconList } = this.state;
-        const filteredIconList = iconList.filter(
-            (icon) => icon.name.indexOf(value.toLowerCase()) !== -1
-        );
-
-        this.setState({
-            searchQuery: value,
-            filteredIconList,
-        });
+    this.state = {
+      iconList: icons.items,
+      searchQuery: '',
+      filteredIconList: [],
     };
+  }
 
-    handlePick = (icon: IIcon) => {
-        parent.postMessage({ pluginMessage: { type: 'pick-icon', values: icon } }, '*');
-    };
+  handleSearchChange = (value) => {
+    const { iconList } = this.state;
+    const filteredIconList = iconList.filter(
+      (icon) => icon.name.indexOf(value.toLowerCase()) !== -1
+    );
 
-    renderIconList = () => {
-        const { iconList } = this.state;
+    this.setState({
+      searchQuery: value,
+      filteredIconList,
+    });
+  };
 
-        return (
-            <div className="icons-container__list">
-                {iconList.map((icon) => (
-                    <Icon key={icon.name} icon={icon} onClick={this.handlePick} />
-                ))}
-            </div>
-        );
-    };
+  handlePick = (icon: IIcon) => {
+    parent.postMessage({ pluginMessage: { type: 'pick-icon', values: icon } }, '*');
+  };
 
-    renderFilteredIconList = () => {
-        const { searchQuery, filteredIconList } = this.state;
+  renderIconList = () => {
+    const { iconList } = this.state;
 
-        return (
-            <div className="icons-container__list">
-                {filteredIconList.length > 0 ? (
-                    filteredIconList.map((icon) => <Icon icon={icon} onClick={this.handlePick} />)
-                ) : (
-                    <Error
-                        id={'not-found'}
-                        text={`Sorry, nothing was found for "${searchQuery}".`}
-                    />
-                )}
-            </div>
-        );
-    };
+    return (
+      <div className="icons-container__list">
+        {iconList.map((icon) => (
+          <Icon key={icon.name} icon={icon} onClick={this.handlePick} />
+        ))}
+      </div>
+    );
+  };
 
-    render() {
-        const { searchQuery } = this.state;
+  renderFilteredIconList = () => {
+    const { searchQuery, filteredIconList } = this.state;
 
-        return (
-            <div>
-                <Input
-                    id={'icon-name'}
-                    label={'Icon name'}
-                    value={searchQuery}
-                    className={'search-field'}
-                    onChange={this.handleSearchChange}
-                    maxLength={20}
-                />
+    return (
+      <div className="icons-container__list">
+        {filteredIconList.length > 0 ? (
+          filteredIconList.map((icon) => <Icon icon={icon} onClick={this.handlePick} />)
+        ) : (
+          <Error id={'not-found'} text={`Sorry, nothing was found for "${searchQuery}".`} />
+        )}
+      </div>
+    );
+  };
 
-                <div className="icons-container">
-                    {searchQuery === '' && this.renderIconList()}
-                    {searchQuery !== '' && this.renderFilteredIconList()}
-                </div>
-            </div>
-        );
-    }
+  render() {
+    const { searchQuery } = this.state;
+
+    return (
+      <div>
+        <Input
+          id={'icon-name'}
+          label={'Icon name'}
+          value={searchQuery}
+          className={'search-field'}
+          onChange={this.handleSearchChange}
+          maxLength={20}
+        />
+
+        <div className="icons-container">
+          {searchQuery === '' && this.renderIconList()}
+          {searchQuery !== '' && this.renderFilteredIconList()}
+        </div>
+      </div>
+    );
+  }
 }
 
 ReactDOM.render(<App />, document.getElementById('react-page'));
