@@ -4,8 +4,8 @@ import './styles/index.scss';
 
 // components
 import Icon from './components/Icon/index';
-import Error from './components/Error/index';
 import Input from './components/Input/index';
+import { Error } from './components/Error/index';
 
 // data
 import icons from '../icons.json';
