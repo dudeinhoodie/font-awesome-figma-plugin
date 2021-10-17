@@ -1,12 +1,7 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 import { concatClassName } from '../../utils/helper';
+import { ErrorProps } from './Error.types';
 import './styles.scss';
-
-type ErrorProps = {
-  id: string | number;
-  text: string;
-  className?: string;
-};
 
 const Error: FC<ErrorProps> = (props) => {
   const { id, text, className } = props;
@@ -19,4 +14,6 @@ const Error: FC<ErrorProps> = (props) => {
   );
 };
 
-export default Error;
+const memoizedError = memo(Error);
+
+export { memoizedError as Error };
