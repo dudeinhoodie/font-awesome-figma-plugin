@@ -1,18 +1,7 @@
-import React, { FC, ReactElement } from 'react';
+import React, { FC, memo, ReactElement } from 'react';
 import { concatClassName } from '../../utils/helper';
+import { ButtonProps } from './Button.types';
 import './style.scss';
-
-type ButtonProps = {
-  onClick: Function;
-  title: string;
-  css?: string;
-  type?: string;
-  disabled?: boolean;
-  isSelected?: boolean;
-  className?: string;
-  iconLeft?: ReactElement;
-  iconRight?: ReactElement;
-};
 
 const Button: FC<ButtonProps> = (props): ReactElement<HTMLButtonElement> => {
   const { type, onClick, isSelected, className, title, css, disabled, iconLeft, iconRight } = props;
@@ -37,4 +26,6 @@ const Button: FC<ButtonProps> = (props): ReactElement<HTMLButtonElement> => {
   );
 };
 
-export default Button;
+const memoizedButton = memo(Button);
+
+export { memoizedButton as Button };
