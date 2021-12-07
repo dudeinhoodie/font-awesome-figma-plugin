@@ -18,7 +18,7 @@ const Button: FC<ButtonProps> = (props): ReactElement<HTMLButtonElement> => {
   };
 
   return (
-    <button onClick={handleClick} style={css} className={cn} disabled={disabled}>
+    <button onClick={handleClick} className={cn} disabled={disabled}>
       {iconLeft && <div className="button__icon-container">{React.cloneElement(iconLeft)}</div>}
       {title}
       {iconRight && <div className="button__icon-container">{React.cloneElement(iconRight)}</div>}
