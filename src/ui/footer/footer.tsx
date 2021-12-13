@@ -1,5 +1,5 @@
 import React from 'react';
-import { Checkbox } from '../Checkbox/Checkbox';
+import { Checkbox } from '../checkbox/checkbox';
 import './styles.scss';
 
 export function Footer() {
