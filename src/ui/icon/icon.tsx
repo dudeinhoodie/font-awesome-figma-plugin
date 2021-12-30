@@ -22,6 +22,8 @@ function Icon({ icon, className, size = '1x' }: Props) {
             name,
             width: width / 20,
             height: height / 20,
+            // TODO: change it
+            count: 1,
           },
         },
       },
@@ -31,12 +33,15 @@ function Icon({ icon, className, size = '1x' }: Props) {
 
   return (
     <div className={styles.root} onClick={handleClick}>
-      <FontAwesomeIcon
-        icon={icon}
-        forwardedRef={ref}
-        className={classNames(styles.icon, className)}
-        size={size}
-      />
+      <div className={styles.icon}>
+        <FontAwesomeIcon
+          icon={icon}
+          forwardedRef={ref}
+          className={classNames(styles.faIcon, className)}
+          size={size}
+        />
+      </div>
+      <span className={styles.name}>{icon.iconName}</span>
     </div>
   );
 }

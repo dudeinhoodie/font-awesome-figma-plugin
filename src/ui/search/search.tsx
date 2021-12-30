@@ -1,7 +1,5 @@
 import React, { ChangeEvent } from 'react';
 
-import { Input } from '&components/input/input';
-
 import { Props } from './search.types';
 import styles from './search.styles.scss';
 
@@ -14,12 +12,13 @@ export function Search({ query, onChange }: Props) {
 
   return (
     <div className={styles.root}>
-      <Input
-        id={'search'}
+      <input
+        type="text"
         value={query}
+        className={styles.input}
         onChange={handleChangeQuery}
-        placeholder={'Just type icon name...'}
-        autofocus
+        placeholder={'Search icons for...'}
+        autoFocus
       />
     </div>
   );

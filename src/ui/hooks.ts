@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export function useQuery() {
+export function useSearchQuery() {
   const [query, setQuery] = useState<string>('');
 
   const handleChange = (value: string) => {

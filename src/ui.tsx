@@ -2,14 +2,13 @@ import React from 'react';
 import * as ReactDOM from 'react-dom';
 
 import { Search } from './ui/search';
-import { Footer } from './ui/footer';
-import { useQuery } from './ui/hooks';
+import { useSearchQuery } from './ui/hooks';
 import { IconsView } from './ui/icons_view';
 import { PluginContext } from './utils/ui.context';
 import styles from './ui.styles.scss';
 
 function App() {
-  const { query, onChange } = useQuery();
+  const { query, onChange } = useSearchQuery();
   const contextValue = {
     query,
   };
@@ -19,7 +18,6 @@ function App() {
       <PluginContext.Provider value={contextValue}>
         <Search query={query} onChange={onChange} />
         <IconsView />
-        {/*<Footer />*/}
       </PluginContext.Provider>
     </div>
   );
