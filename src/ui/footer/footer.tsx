@@ -1,10 +1,12 @@
 import React from 'react';
-import { Checkbox } from '../checkbox/checkbox';
+
+import { Checkbox } from '&components/checkbox';
+
 import './styles.scss';
 
 export function Footer() {
   const handleCloseAfterChoosing = () => {
-    console.log('close')
+    console.log('close');
   };
 
   return (

@@ -12,6 +12,8 @@ figma.ui.onmessage = async (msg) => {
   icon.x = figma.viewport.center.x;
   icon.y = figma.viewport.center.y;
 
+  icon.resize(values.width, values.height);
+
   figma.currentPage.appendChild(icon);
   figma.closePlugin();
 };

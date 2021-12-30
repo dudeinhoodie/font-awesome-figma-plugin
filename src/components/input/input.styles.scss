@@ -16,8 +16,8 @@
   height: 30px;
   padding: 7px;
 
-  outline: none;
   border: 1px solid var(--border-color);
+  border-radius: 2px;
 
   box-sizing: border-box;
 
@@ -26,6 +26,7 @@
     --border-color: #18a0fb;
 
     outline: 1px solid var(--border-color);
+    outline-offset: -2px;
   }
 
   &[type='number']::-webkit-inner-spin-button,
