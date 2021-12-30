@@ -12,10 +12,7 @@ export function IconsView() {
 
   return (
     <div className={styles.root}>
-      {collections.map(
-        ({ icons, title }) =>
-          !isEmpty(icons) && <IconList key={title} icons={icons} title={title} />
-      )}
+      {collections.map(({ icons }) => !isEmpty(icons) && <IconList icons={icons} />)}
     </div>
   );
 }

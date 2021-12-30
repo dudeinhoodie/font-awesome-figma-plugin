@@ -3,8 +3,12 @@
 }
 
 body {
-  margin: 0;
+  margin: 10px;
 }
 
 .root {
+  display: flex;
+  flex-flow: column nowrap;
+  overflow: auto;
+  height: 100%;
 }
