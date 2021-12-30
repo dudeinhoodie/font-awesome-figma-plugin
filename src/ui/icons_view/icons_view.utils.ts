@@ -4,7 +4,8 @@ import { IconDefinition } from '@fortawesome/fontawesome-common-types';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons';
-import { PackType } from './icons_view.types';
+
+import { PackType } from '../../models/categories/types';
 
 const ICONS = R.concat(R.values(far), R.values(fas), R.values(fab));
 

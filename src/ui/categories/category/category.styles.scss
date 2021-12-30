@@ -1,0 +1,32 @@
+:root {
+  --category-background: #fff;
+  --category-color: #495057;
+  --category-border-color: #adb5bd;
+}
+
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: var(--category-background);
+  padding: 4px 10px;
+  color: var(--category-color);
+  line-height: 1.3;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 1px var(--category-border-color);
+}
+
+.name {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: lowercase;
+  user-select: none;
+}
+
+.active {
+  --category-background: #495057;
+  --category-color: #fff;
+  --category-border-color: #495057;
+}
