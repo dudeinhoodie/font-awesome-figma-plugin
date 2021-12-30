@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Icon } from '../icon';
+import { Icon } from './icon';
 import { Props } from './icon_list.types';
 import styles from './icon_list.styles.scss';
 

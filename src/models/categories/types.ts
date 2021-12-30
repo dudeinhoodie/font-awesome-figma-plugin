@@ -6,5 +6,6 @@ export enum PackType {
 
 export type Category = {
   name: keyof PackType;
+  value: PackType;
   isActive: boolean;
 };
