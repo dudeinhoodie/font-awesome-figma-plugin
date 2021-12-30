@@ -1,6 +1,12 @@
-import { IconDefinition } from '@fortawesome/fontawesome-common-types';
+import { IconPack } from '@fortawesome/fontawesome-common-types';
+
+export enum PackType {
+  Solid = 'fas',
+  Regular = 'far',
+  Brand = 'fab',
+}
 
 export type Collection = {
-  title: string;
-  icons: IconDefinition[];
+  type: PackType;
+  icons: IconPack;
 };

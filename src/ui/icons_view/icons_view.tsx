@@ -12,7 +12,11 @@ export function IconsView() {
 
   return (
     <div className={styles.root}>
-      {collections.map(({ icons }) => !isEmpty(icons) && <IconList icons={icons} />)}
+      {!isEmpty(collections) ? (
+        <IconList icons={collections} />
+      ) : (
+        <span>Sorry, we can't find such icons</span>
+      )}
     </div>
   );
 }
