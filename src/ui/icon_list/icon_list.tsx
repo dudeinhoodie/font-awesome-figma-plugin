@@ -9,7 +9,7 @@ export function IconList({ icons }: Props) {
     <div className={styles.root}>
       <ul className={styles.list}>
         {icons.map((icon) => (
-          <li key={icon.iconName} className={styles.element}>
+          <li key={`${icon.prefix}-${icon.iconName}`} className={styles.element}>
             <Icon icon={icon} size={'2x'} />
           </li>
         ))}

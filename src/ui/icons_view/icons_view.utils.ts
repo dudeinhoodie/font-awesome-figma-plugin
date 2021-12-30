@@ -1,38 +1,37 @@
-import { useMemo } from 'react';
-import { findIconDefinition, library, IconPrefix } from '@fortawesome/fontawesome-svg-core';
-import { IconDefinition, IconPack } from '@fortawesome/fontawesome-common-types';
+import * as R from 'ramda';
+
+import { IconDefinition } from '@fortawesome/fontawesome-common-types';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons';
+import { PackType } from './icons_view.types';
 
-import { Collection } from './icons_view.types';
+const ICONS = R.concat(R.values(far), R.values(fas), R.values(fab));
 
-library.add(far, fab, fas);
+function filterBySearchQuery(query: string) {
+  return function(icons: IconDefinition[]) {
+    if (!query) {
+      return icons;
+    }
 
-export function mapIcons(lib: IconPack, name: IconPrefix, query: string): IconDefinition[] {
-  const iconKeys = Object.keys(lib);
-  const values = iconKeys.map((key: string) => {
-    return findIconDefinition({ prefix: name, iconName: lib[key].iconName });
-  });
-
-  if (query) {
-    return values.filter((icon) => icon.iconName.includes(query));
-  }
-
-  return values;
+    return R.filter((icon) => R.includes(query, icon.iconName), icons);
+  };
 }
 
-export function useIcons(query: string): Collection[] {
-  const regular = mapIcons(far, 'far', query);
-  const brands = mapIcons(fab, 'fab', query);
-  const solid = mapIcons(fas, 'fas', query);
+function filterByLibType(type: PackType) {
+  return function(icons: IconDefinition[]) {
+    if (!type) {
+      return icons;
+    }
 
-  return useMemo(
-    () => [
-      { title: 'Regular', icons: regular },
-      { title: 'Solid', icons: solid },
-      { title: 'Brands', icons: brands },
-    ],
-    [query]
-  );
+    return R.filter((icon) => R.includes(type, icon.prefix), icons);
+  };
+}
+
+export function useIcons(query: string, type?: PackType) {
+  return R.compose(
+    filterByLibType(type),
+    filterBySearchQuery(query),
+    R.sortBy(R.prop('iconName'))
+  )(ICONS);
 }
