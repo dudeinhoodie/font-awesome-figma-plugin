@@ -1,22 +1,18 @@
 import React from 'react';
+import { useStore } from 'effector-react';
 import { isEmpty } from 'ramda';
 
-import { usePluginContext } from '../../utils/ui.context';
+import { $filteredIcons } from '&models/icons';
+
 import { IconList } from '../icon_list';
-import { useIcons } from './icons_view.utils';
 import styles from './icons_view.styles.scss';
 
 export function IconsView() {
-  const { query } = usePluginContext();
-  const collections = useIcons(query);
+  const icons = useStore($filteredIcons);
 
   return (
     <div className={styles.root}>
-      {!isEmpty(collections) ? (
-        <IconList icons={collections} />
-      ) : (
-        <span>Sorry, we can't find such icons</span>
-      )}
+      {!isEmpty(icons) ? <IconList icons={icons} /> : <span>Sorry, we can't find such icons</span>}
     </div>
   );
 }

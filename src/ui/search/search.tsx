@@ -1,20 +1,25 @@
 import React, { ChangeEvent } from 'react';
 
-import { Props } from './search.types';
-import styles from './search.styles.scss';
+import { $searchQuery, setSearchQuery } from '&models/search';
 
-export function Search({ query, onChange }: Props) {
+import styles from './search.styles.scss';
+import { useEvent, useStore } from 'effector-react';
+
+export function Search() {
+  const searchQuery = useStore($searchQuery);
+  const setSearchQueryFn = useEvent(setSearchQuery);
+
   const handleChangeQuery = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
 
-    onChange(value);
+    setSearchQueryFn(value);
   };
 
   return (
     <div className={styles.root}>
       <input
         type="text"
-        value={query}
+        value={searchQuery}
         className={styles.input}
         onChange={handleChangeQuery}
         placeholder={'Search icons for...'}

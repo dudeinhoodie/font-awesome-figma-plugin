@@ -10,4 +10,4 @@ const $activeCategories = $categories.map(getActiveCategories);
 
 const updateCategory = categoriesDomain.createEvent<{ index: number; category: Category }>();
 
-export { $categories, updateCategory };
+export { $categories, $activeCategories, updateCategory };
