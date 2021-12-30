@@ -1,0 +1,19 @@
+.root {
+  margin-bottom: 16px;
+}
+
+.list {
+  display: flex;
+  flex-flow: row nowrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.element {
+  margin-right: 8px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}

@@ -53,7 +53,7 @@ module.exports = (env, argv) => ({
   resolve: {
     extensions: ['.tsx', '.ts', '.jsx', '.js'],
     alias: {
-      '&components': path.resolve(__dirname, 'src/components/'),
+      '&models': path.resolve(__dirname, 'src/models/'),
     },
   },
 

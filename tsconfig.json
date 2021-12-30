@@ -9,7 +9,7 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "&components/*": ["./src/components/*"]
+      "&models/*": ["./src/models/*"]
     }
   },
   "exclude": ["node_modules"]
