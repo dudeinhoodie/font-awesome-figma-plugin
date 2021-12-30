@@ -3,11 +3,10 @@ import { useStore } from 'effector-react';
 
 import { $categories } from '&models/categories';
 
-import { Props } from './categories.types';
 import { Category } from './category';
 import styles from './categories.styles.scss';
 
-export function Categories(props: Props) {
+export function Categories() {
   const categories = useStore($categories);
 
   return (
