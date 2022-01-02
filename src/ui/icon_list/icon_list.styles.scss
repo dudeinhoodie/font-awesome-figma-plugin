@@ -1,0 +1,31 @@
+.root {
+  display: block;
+  width: 100%;
+}
+
+.list {
+  display: grid;
+  grid-gap: 12px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  background-color: #fff;
+  color: #444;
+  margin: 0 12px 0 0;
+
+  list-style: none;
+  padding: 0;
+}
+
+.title {
+  background: #fff;
+  position: sticky;
+  top: 40px;
+  padding: 15px 0;
+  margin: 0;
+  z-index: 10;
+  font-size: 16px;
+}
+
+.element {
+  display: block;
+  width: 100%;
+}
