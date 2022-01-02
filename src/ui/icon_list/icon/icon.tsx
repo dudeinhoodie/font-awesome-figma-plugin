@@ -1,11 +1,15 @@
 import React, { memo, useRef } from 'react';
+import { useEvent } from 'effector-react';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { pickIcon } from '&models/icons';
 
 import { Props } from './icon.types';
 import styles from './icon.styles.scss';
 
 function Icon({ icon, className, size = '1x' }: Props) {
+  const pickIconFn = useEvent(pickIcon);
   const ref = useRef(null);
 
   const handleClick = () => {
@@ -13,22 +17,12 @@ function Icon({ icon, className, size = '1x' }: Props) {
     const name = icon.iconName;
     const content = ref.current.outerHTML;
 
-    parent.postMessage(
-      {
-        pluginMessage: {
-          type: 'pick-icon',
-          values: {
-            content,
-            name,
-            width: width / 20,
-            height: height / 20,
-            // TODO: change it
-            count: 1,
-          },
-        },
-      },
-      '*'
-    );
+    pickIconFn({
+      content,
+      name,
+      width: width / 20,
+      height: height / 20,
+    });
   };
 
   return (

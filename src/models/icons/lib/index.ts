@@ -5,6 +5,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 
 import { Category } from '&models/categories/types';
+import { PickedIcon } from '&models/icons/types';
 
 export function filterBySearchQuery(query: string) {
   return function(icons: IconDefinition[]) {
@@ -42,4 +43,23 @@ export function filterIcons(
     filterBySearchQuery(query),
     filterByCategories(activeCategories)
   )(icons);
+}
+
+export function paintIcon({ icon, counter }: { icon: PickedIcon; counter: number }) {
+  const { name, content, width, height } = icon;
+
+  parent.postMessage(
+    {
+      pluginMessage: {
+        values: {
+          content,
+          name,
+          width,
+          height,
+          count: counter,
+        },
+      },
+    },
+    '*'
+  );
 }
