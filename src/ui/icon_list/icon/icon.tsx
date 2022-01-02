@@ -17,12 +17,7 @@ function Icon({ icon, className, size = '1x' }: Props) {
     const name = icon.iconName;
     const content = ref.current.outerHTML;
 
-    pickIconFn({
-      content,
-      name,
-      width: width / 20,
-      height: height / 20,
-    });
+    pickIconFn({ content, name, width, height });
   };
 
   return (
