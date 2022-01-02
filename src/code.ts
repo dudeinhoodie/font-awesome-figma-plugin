@@ -23,7 +23,7 @@ figma.ui.onmessage = async (msg) => {
   icon.x = x + offset * count;
   icon.y = y;
 
-  icon.resize(width, height);
+  icon.resize(width / 20, height / 20);
 
   figma.currentPage.appendChild(icon);
 };
