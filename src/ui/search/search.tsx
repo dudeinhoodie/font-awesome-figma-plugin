@@ -1,9 +1,9 @@
 import React, { ChangeEvent } from 'react';
+import { useEvent, useStore } from 'effector-react';
 
 import { $searchQuery, setSearchQuery } from '&models/search';
 
 import styles from './search.styles.scss';
-import { useEvent, useStore } from 'effector-react';
 
 export function Search() {
   const searchQuery = useStore($searchQuery);
@@ -17,14 +17,16 @@ export function Search() {
 
   return (
     <div className={styles.root}>
-      <input
-        type="text"
-        value={searchQuery}
-        className={styles.input}
-        onChange={handleChangeQuery}
-        placeholder={'Search icons for...'}
-        autoFocus
-      />
+      <div className="input input--with-icon">
+        <div className="icon icon--search-large" />
+        <input
+          type="input"
+          className="input__field"
+          value={searchQuery}
+          placeholder={'Search icons for...'}
+          onChange={handleChangeQuery}
+        />
+      </div>
     </div>
   );
 }

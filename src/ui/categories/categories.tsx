@@ -13,7 +13,7 @@ export function Categories() {
     <div className={styles.root}>
       <ul className={styles.list}>
         {categories.map((category, index) => (
-          <li key={category.name} className={styles.element}>
+          <li key={category.name}>
             <Category category={category} index={index} />
           </li>
         ))}

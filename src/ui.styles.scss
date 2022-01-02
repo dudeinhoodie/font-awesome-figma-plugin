@@ -1,10 +1,10 @@
+:global {
+  @import '../node_modules/figma-plugin-ds/dist/figma-plugin-ds';
+}
+
 * {
   font-family: 'Helvetica Neue', sans-serif;
   box-sizing: border-box;
-}
-
-body {
-  margin: 10px;
 }
 
 .root {
@@ -12,4 +12,5 @@ body {
   flex-flow: column nowrap;
   overflow: auto;
   height: 100%;
+  padding: 10px;
 }
