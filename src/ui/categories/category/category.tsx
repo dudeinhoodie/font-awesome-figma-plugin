@@ -1,12 +1,12 @@
 import React from 'react';
 import { useEvent } from 'effector-react';
 
-import { updateCategory } from '&models/categories';
+import { categoryUpdated } from '&models/categories';
 
 import { Props } from './category.types';
 
 export function Category({ category, index }: Props) {
-  const updateCategoryFn = useEvent(updateCategory);
+  const updateCategoryFn = useEvent(categoryUpdated);
 
   const handleCategoryClick = () => {
     updateCategoryFn({ index, category });

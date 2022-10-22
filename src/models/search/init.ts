@@ -1,3 +1,3 @@
-import { $searchQuery, setSearchQuery } from '&models/search/index';
+import { $searchQuery, searchSet } from '&models/search/index';
 
-$searchQuery.on(setSearchQuery, (_, value) => value);
+$searchQuery.on(searchSet, (_, value) => value);

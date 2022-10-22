@@ -1,0 +1,1 @@
+export { IconsPanel } from './icons_panel'

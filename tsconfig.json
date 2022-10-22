@@ -9,7 +9,12 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "&models/*": ["./src/models/*"]
+      "&models/*": ["./src/models/*"],
+      "&features/*": ["src/features/*"],
+      "&widgets/*": ["src/widgets/*"],
+      "&shared/*": ["src/shared/*"],
+      "&pages/*": ["src/pages/*"],
+      "&entities/*": ["src/entities/*"]
     }
   },
   "exclude": ["node_modules"]

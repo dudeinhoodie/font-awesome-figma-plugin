@@ -1,9 +1,13 @@
 {
-  "printWidth": 100,
+  "printWidth": 80,
   "tabWidth": 2,
   "singleQuote": true,
   "semi": true,
   "trailingComma": "es5",
   "arrowParens": "always",
-  "jsxBracketSameLine": false
+  "jsxBracketSameLine": false,
+  "importOrder": ["^&", "^[../]", "^[./]"],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "importOrderGroupNamespaceSpecifiers": false
 }

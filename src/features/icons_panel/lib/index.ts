@@ -1,0 +1,1 @@
+export { filterIconsByQuery } from './filter_icons_by_query'

@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { Icon } from './icon';
-import { Props } from './icon_list.types';
 import styles from './icon_list.styles.scss';
+import { Props } from './icon_list.types';
 
 export function IconList({ icons }: Props) {
   return (
@@ -10,7 +10,7 @@ export function IconList({ icons }: Props) {
       <ul className={styles.list}>
         {icons.map((icon) => (
           <li key={`${icon.prefix}-${icon.iconName}`} className={styles.element}>
-            <Icon icon={icon} size={'2x'} />
+            <div>123</div>
           </li>
         ))}
       </ul>

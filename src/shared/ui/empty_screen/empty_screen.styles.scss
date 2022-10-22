@@ -1,0 +1,16 @@
+.root {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 0;
+  color: var(--black3);
+}
+
+.icon {
+  margin-right: 12px;
+}
+
+.text {
+  margin: 0;
+}

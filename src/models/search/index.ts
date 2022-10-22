@@ -4,6 +4,6 @@ const searchDomain = createDomain();
 
 const $searchQuery = searchDomain.createStore<string>('');
 
-const setSearchQuery = searchDomain.createEvent<string>();
+const searchSet = searchDomain.createEvent<string>();
 
-export { $searchQuery, setSearchQuery };
+export { $searchQuery, searchSet };

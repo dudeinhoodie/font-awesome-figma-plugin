@@ -10,7 +10,7 @@ module.exports = (env, argv) => ({
   devtool: argv.mode === 'production' ? false : 'inline-source-map',
 
   entry: {
-    ui: './src/ui.tsx',
+    ui: './src/app/app.tsx',
     code: './src/code.ts',
   },
 
@@ -62,6 +62,11 @@ module.exports = (env, argv) => ({
     extensions: ['.tsx', '.ts', '.jsx', '.js'],
     alias: {
       '&models': path.resolve(__dirname, 'src/models/'),
+      '&features': path.resolve(__dirname, 'src/features/'),
+      '&widgets': path.resolve(__dirname, 'src/widgets/'),
+      '&shared': path.resolve(__dirname, 'src/shared/'),
+      '&pages': path.resolve(__dirname, 'src/pages/'),
+      '&entities': path.resolve(__dirname, 'src/entities/'),
     },
   },
 

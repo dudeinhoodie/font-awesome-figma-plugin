@@ -5,5 +5,5 @@ import { IconDefinition } from '@fortawesome/free-brands-svg-icons';
 export type Props = {
   icon: IconDefinition & IconLookup;
   className?: string;
-  size?: SizeProp;
+  // size?: SizeProp;
 };

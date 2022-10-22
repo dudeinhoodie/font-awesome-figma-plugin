@@ -12,9 +12,11 @@ const iconsDomain = createDomain();
 const paintIconFx = iconsDomain.createEffect(paintIcon);
 
 const $icons = iconsDomain.createStore<IconDefinition[]>(initializeIcons());
+
 const $pickedIconsCounter = iconsDomain.createStore<number>(0);
+
 const $filteredIcons = combine($searchQuery, $activeCategories, $icons, filterIcons);
 
-const pickIcon = iconsDomain.createEvent<PickedIcon>();
+const iconPicked = iconsDomain.createEvent<PickedIcon>();
 
-export { $icons, $pickedIconsCounter, $filteredIcons, pickIcon, paintIconFx };
+export { $icons, $pickedIconsCounter, $filteredIcons, iconPicked, paintIconFx };
