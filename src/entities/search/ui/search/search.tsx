@@ -1,10 +1,6 @@
 import React, { ChangeEvent } from 'react';
-import cx from 'classnames';
-
-import { $searchQuery, setSearchQuery } from '&models/search';
 
 import { SearchProps } from './search.types';
-import styles from './search.styles.scss';
 
 export function Search({ value, onChange, className }: SearchProps) {
   const handleChangeQuery = (
@@ -16,7 +12,7 @@ export function Search({ value, onChange, className }: SearchProps) {
   };
 
   return (
-    <div className={cx(className, styles.root)}>
+    <div className={className}>
       <div className="input input--with-icon">
         <div className="icon icon--search-large" />
         <input
