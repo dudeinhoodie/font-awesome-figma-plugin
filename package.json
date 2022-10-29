@@ -4,7 +4,8 @@
   "main": "src/code.js",
   "scripts": {
     "dev": "NODE_ENV=development npx webpack --mode=development --watch",
-    "build": "NODE_ENV=production npx webpack --mode=production"
+    "build": "NODE_ENV=production npx webpack --mode=production",
+    "storybook": "start-storybook -p 6006"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
@@ -33,8 +34,20 @@
     "webpack-cli": "^3.3.6"
   },
   "devDependencies": {
+    "@babel/core": "^7.19.6",
+    "@mdx-js/react": "^2.1.5",
+    "@storybook/addon-actions": "^6.5.13",
+    "@storybook/addon-docs": "^6.5.13",
+    "@storybook/addon-essentials": "^6.5.13",
+    "@storybook/addon-interactions": "^6.5.13",
+    "@storybook/addon-links": "^6.5.13",
+    "@storybook/builder-webpack4": "^6.5.13",
+    "@storybook/manager-webpack4": "^6.5.13",
+    "@storybook/react": "^6.5.13",
+    "@storybook/testing-library": "^0.0.13",
     "@types/react": "^16.9.2",
     "@types/react-dom": "^16.9.0",
+    "babel-loader": "^8.2.5",
     "node-sass": "^4.14.1",
     "prettier": "^1.18.2",
     "sass-loader": "^8.0.0",
