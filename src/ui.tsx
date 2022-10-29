@@ -45,7 +45,10 @@ class App extends Component<AppProps, AppState> {
   };
 
   handlePick = (icon: IIcon) => {
-    parent.postMessage({ pluginMessage: { type: 'pick-icon', values: icon } }, '*');
+    parent.postMessage(
+      { pluginMessage: { type: 'pick-icon', values: icon } },
+      '*'
+    );
   };
 
   renderIconList = () => {
@@ -54,7 +57,11 @@ class App extends Component<AppProps, AppState> {
     return (
       <div className="icons-container__list">
         {iconList.map((icon) => (
-          <Icon key={icon.name} icon={icon} onClick={this.handlePick} />
+          <Icon
+            key={icon.name}
+            icon={icon}
+            onClick={this.handlePick}
+          />
         ))}
       </div>
     );
@@ -66,9 +73,14 @@ class App extends Component<AppProps, AppState> {
     return (
       <div className="icons-container__list">
         {filteredIconList.length > 0 ? (
-          filteredIconList.map((icon) => <Icon icon={icon} onClick={this.handlePick} />)
+          filteredIconList.map((icon) => (
+            <Icon icon={icon} onClick={this.handlePick} />
+          ))
         ) : (
-          <Error id={'not-found'} text={`Sorry, nothing was found for "${searchQuery}".`} />
+          <Error
+            id={'not-found'}
+            text={`Sorry, nothing was found for "${searchQuery}".`}
+          />
         )}
       </div>
     );
