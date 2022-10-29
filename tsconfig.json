@@ -1,11 +1,16 @@
 {
-    "compilerOptions": {
-        "esModuleInterop": true,
-        "module": "es6",
-        "target": "es6",
-        "jsx": "react",
-        "sourceMap": true,
-        "typeRoots": ["custom.d.ts"]
-    },
-    "exclude": ["node_modules"]
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "module": "es6",
+    "target": "ESNext",
+    "jsx": "react",
+    "sourceMap": true,
+    "typeRoots": ["custom.d.ts"],
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "&models/*": ["./src/models/*"]
+    }
+  },
+  "exclude": ["node_modules"]
 }

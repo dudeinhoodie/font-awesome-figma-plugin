@@ -1,6 +1,6 @@
 import { inputs, outputs } from './search.model';
 
-const searchService = {
+export const searchService = {
   inputs,
   outputs,
 };
