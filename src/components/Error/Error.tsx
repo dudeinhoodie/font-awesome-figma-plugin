@@ -1,14 +1,14 @@
 import React, { FC, memo } from 'react';
-import { concatClassName } from '../../utils/helper';
+import cn from 'classnames';
+
 import { ErrorProps } from './Error.types';
 import './styles.scss';
 
 const Error: FC<ErrorProps> = (props) => {
   const { id, text, className } = props;
-  const cnError = concatClassName('error', [className]);
 
   return (
-    <p key={id} className={cnError}>
+    <p key={id} className={cn('error', [className])}>
       {text}
     </p>
   );
