@@ -1,23 +1,21 @@
-import React, { FC } from 'react';
-import { IIcon } from '../../types';
+import React from 'react';
+
 import './icon.scss';
+import { IconProps } from './Icon.types';
 
-interface IIconComponent {
-  icon: IIcon;
-  onClick: Function;
-}
-
-const Icon: FC<IIconComponent> = (props: IIconComponent) => {
-  const { icon, onClick } = props;
-
-  const handleClick = (event: React.MouseEvent<HTMLDivElement>): void => {
+const Icon = ({ icon, onClick }: IconProps) => {
+  const handleClick = () => {
     if (onClick) {
       onClick(icon);
     }
   };
 
   return (
-    <div className="icons-container__element" onClick={handleClick} key={icon.name}>
+    <div
+      className="icons-container__element"
+      onClick={handleClick}
+      key={icon.name}
+    >
       <div dangerouslySetInnerHTML={{ __html: icon.content }} />
     </div>
   );

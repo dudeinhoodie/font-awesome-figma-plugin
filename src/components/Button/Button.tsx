@@ -1,23 +1,19 @@
-import React, { FC, memo, ReactElement } from 'react';
+import React, { memo } from 'react';
 import cn from 'classnames';
 
 import { ButtonProps } from './Button.types';
 import './style.scss';
 
-const Button: FC<ButtonProps> = (
-  props
-): ReactElement<HTMLButtonElement> => {
-  const {
-    type,
-    onClick,
-    isSelected,
-    className,
-    title,
-    disabled,
-    iconLeft,
-    iconRight,
-  } = props;
-
+const Button = ({
+  type,
+  onClick,
+  isSelected,
+  className,
+  title,
+  disabled,
+  iconLeft,
+  iconRight,
+}: ButtonProps) => {
   const handleClick = (event: React.MouseEvent): void => {
     if (onClick && !disabled) {
       onClick(event);
