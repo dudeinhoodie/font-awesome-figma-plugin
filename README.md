@@ -1,4 +1,3 @@
 ### About
 
-This is the unofficial plugin for the Font Awesome Icon Collection. The plugin provides access to the entire free icon collection.
-All icons are in vector format. Plugin allows you to filter the list of icons by name.
+The plugin is an unofficial extension for the Font Awesome Icon Collection. It grants users access to the complete collection of free icons, all of which are available in vector format. With the plugin, you can conveniently filter the list of icons by name.
