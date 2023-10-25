@@ -1,15 +1,22 @@
 import React, { FC, memo, ReactElement } from 'react';
-import { concatClassName } from '../../utils/helper';
+import cn from 'classnames';
+
 import { ButtonProps } from './Button.types';
 import './style.scss';
 
-const Button: FC<ButtonProps> = (props): ReactElement<HTMLButtonElement> => {
-  const { type, onClick, isSelected, className, title, css, disabled, iconLeft, iconRight } = props;
-  const cn = concatClassName('button', [
+const Button: FC<ButtonProps> = (
+  props
+): ReactElement<HTMLButtonElement> => {
+  const {
+    type,
+    onClick,
+    isSelected,
     className,
-    type ? `button--${type}` : '',
-    isSelected ? 'selected' : '',
-  ]);
+    title,
+    disabled,
+    iconLeft,
+    iconRight,
+  } = props;
 
   const handleClick = (event: React.MouseEvent): void => {
     if (onClick && !disabled) {
@@ -18,10 +25,29 @@ const Button: FC<ButtonProps> = (props): ReactElement<HTMLButtonElement> => {
   };
 
   return (
-    <button onClick={handleClick} style={css} className={cn} disabled={disabled}>
-      {iconLeft && <div className="button__icon-container">{React.cloneElement(iconLeft)}</div>}
+    <button
+      onClick={handleClick}
+      className={cn(
+        'button',
+        {
+          [`button--${type}`]: type !== 'default',
+          ['selected']: isSelected,
+        },
+        className
+      )}
+      disabled={disabled}
+    >
+      {iconLeft && (
+        <div className="button__icon-container">
+          {React.cloneElement(iconLeft)}
+        </div>
+      )}
       {title}
-      {iconRight && <div className="button__icon-container">{React.cloneElement(iconRight)}</div>}
+      {iconRight && (
+        <div className="button__icon-container">
+          {React.cloneElement(iconRight)}
+        </div>
+      )}
     </button>
   );
 };

@@ -1,7 +1,6 @@
 import React, { FC, ReactElement } from 'react';
-import { concatClassName } from '../../utils/helper';
+import cn from 'classnames';
 
-// Components
 import Label from '../Label/Label';
 import './styles.scss';
 
@@ -16,14 +15,23 @@ type InputProps = {
   maxLength?: number;
 };
 
-const Input: FC<InputProps> = (props: InputProps): ReactElement<HTMLInputElement> => {
-  const { id, type = 'text', maxLength, onChange, value, className, label, disabled } = props;
-  const cnContainer = concatClassName('input-container', [className]);
-  const cnControl = concatClassName('input-container__control', [
-    disabled && 'input-container__control--disabled',
-  ]);
+const Input: FC<InputProps> = (
+  props: InputProps
+): ReactElement<HTMLInputElement> => {
+  const {
+    id,
+    type = 'text',
+    maxLength,
+    onChange,
+    value,
+    className,
+    label,
+    disabled,
+  } = props;
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const value = event.target.value;
 
     if (onChange) {
@@ -32,12 +40,14 @@ const Input: FC<InputProps> = (props: InputProps): ReactElement<HTMLInputElement
   };
 
   return (
-    <div className={cnContainer}>
+    <div className={cn('input-container', [className])}>
       {label && <Label text={label} />}
       <input
         id={id}
         type={type}
-        className={cnControl}
+        className={cn('input-container__control', {
+          ['input-container__control--disabled']: disabled,
+        })}
         value={value}
         disabled={disabled}
         onChange={handleChange}

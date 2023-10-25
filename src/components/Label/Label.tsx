@@ -1,5 +1,5 @@
 import React, { FC, ReactElement } from 'react';
-import { concatClassName } from '../../utils/helper';
+import cn from 'classnames';
 import './style.scss';
 
 type LabelProps = {
@@ -7,11 +7,12 @@ type LabelProps = {
   className?: string;
 };
 
-const Label: FC<LabelProps> = (props): ReactElement<HTMLSpanElement> => {
+const Label: FC<LabelProps> = (
+  props
+): ReactElement<HTMLSpanElement> => {
   const { text, className } = props;
-  const cn = concatClassName('label', [className]);
 
-  return <span className={cn}>{text}</span>;
+  return <span className={cn('label', [className])}>{text}</span>;
 };
 
 export default Label;
