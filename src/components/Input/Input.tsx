@@ -1,34 +1,20 @@
-import React, { FC, ReactElement } from 'react';
+import React from 'react';
 import cn from 'classnames';
 
 import Label from '../Label/Label';
 import './styles.scss';
+import { InputProps } from './Input.types';
 
-type InputProps = {
-  id: string;
-  type?: string;
-  onChange?: Function;
-  value?: string | number;
-  className?: string;
-  label?: string;
-  disabled?: boolean;
-  maxLength?: number;
-};
-
-const Input: FC<InputProps> = (
-  props: InputProps
-): ReactElement<HTMLInputElement> => {
-  const {
-    id,
-    type = 'text',
-    maxLength,
-    onChange,
-    value,
-    className,
-    label,
-    disabled,
-  } = props;
-
+const Input = ({
+  id,
+  type = 'text',
+  maxLength,
+  onChange,
+  value,
+  className,
+  label,
+  disabled,
+}: InputProps) => {
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {

@@ -1,12 +1,10 @@
-import React, { FC, memo } from 'react';
+import React, { memo } from 'react';
 import cn from 'classnames';
 
 import { ErrorProps } from './Error.types';
 import './styles.scss';
 
-const Error: FC<ErrorProps> = (props) => {
-  const { id, text, className } = props;
-
+const Error = ({ id, text, className }: ErrorProps) => {
   return (
     <p key={id} className={cn('error', [className])}>
       {text}

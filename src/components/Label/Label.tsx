@@ -1,17 +1,9 @@
-import React, { FC, ReactElement } from 'react';
+import React from 'react';
 import cn from 'classnames';
 import './style.scss';
+import { LabelProps } from './Label.types';
 
-type LabelProps = {
-  text: string;
-  className?: string;
-};
-
-const Label: FC<LabelProps> = (
-  props
-): ReactElement<HTMLSpanElement> => {
-  const { text, className } = props;
-
+const Label = ({ text, className }: LabelProps) => {
   return <span className={cn('label', [className])}>{text}</span>;
 };
 
